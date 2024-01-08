@@ -1,0 +1,4 @@
+chroma db 사용
+bot1> chroma run --path /db_chroma 서버 실행
+
+bot1> npm run dev 실행

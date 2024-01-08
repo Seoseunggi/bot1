@@ -1,0 +1,65 @@
+<!--공통-->
+<link rel="stylesheet" href="/css/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="/css/css/bootstrap-reboot.min.css" />
+<script src="/css/js/bootstrap.min.js"></script>
+<script src="/css/js/bootstrap.bundle.min.js"></script>
+<script src="/js/jquery.min.js"></script>
+
+<!--body-->
+<div id="container">
+  <h2 class="title1">아이유가 알려주는 갤럭시 웨어러블 대화방</h2>
+  <div id="model" class="model_view">
+    <button class="btn btn-outline-secondary" type="button">SM-R940</button>
+    <button class="btn btn-outline-secondary" type="button">SM-R84X</button>
+    <button class="btn btn-outline-secondary" type="button">SM-R800</button>
+  </div>
+  <div class="ul" id="result">
+    <div id="box">
+      <ul class="discussion"></ul>
+    </div>
+    <div id="box2">
+      <input
+        type="checkbox"
+        class="btn-check"
+        id="btn-check-outlined"
+        autocomplete="off"
+      />
+      <label class="btn btn-outline-primary" for="btn-check-outlined"
+        >목소리 듣기</label
+      >
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        id="btn-check-outlined-reset"
+      >
+        새로운 채팅
+      </button>
+    </div>
+    <div id="input_q" class="input-group mb-3">
+      <input
+        id="msg"
+        onkeypress="submit_value(event)"
+        type="text"
+        class="form-control"
+        placeholder="질문을 입력하세요"
+        aria-label="Recipient's username"
+        aria-describedby="button-addon2"
+      />
+      <button class="btn btn-outline-secondary" type="button" id="sendBtn">
+        전송
+      </button>
+    </div>
+  </div>
+  <audio id="myAudio" autoplay controls></audio>
+</div>
+
+<!--본문용-->
+<link rel="stylesheet" href="/main_css/askgpt.css" />
+<script src="/main_js/askgpt.js"></script>
+<script>
+  addToDiscussion2(
+    "아이유",
+    "안녕하세요. 갤럭시 웨어러블 가이드를 맡게 된 아이유 입니다.\n어떤 제품에 대한 내용이 궁금하신가요?"
+  );
+</script>

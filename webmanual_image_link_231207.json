@@ -1,0 +1,9 @@
+﻿{
+"web_manual_image": [{
+"r940": {
+
+            "en": "http://www.samsung.com/m-manual/mod/SM-R940/nos",
+            "ko": "http://www.samsung.com/m-manual/mod/SM-R940/nos/",		"images" : [{ "전면이미지" : "http://bms.hansem.com/bot1/r940/front.png",	"후면이미지" : "http://bms.hansem.com/bot1/r940/back.png",	"충전이미지" : "http://bms.hansem.com/bot1/r940/charge.png",	"전원켜기이미지" : "http://bms.hansem.com/bot1/r940/poweron.png"	}],	"videos" : [{ "소개영상" : "https://www.youtube.com/embed/K1Bxolh9LT4?autoplay=1&mute=1",	"활용영상" : "https://www.youtube.com/embed/K1Bxolh9LT4?autoplay=1&mute=1",	}],
+        }
+    }]
+}

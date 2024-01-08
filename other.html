@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>서비스 페이지</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      #home_page {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      #chat_container {
+        width: 94%;
+        height: 94%;
+        position: absolute;
+        border: 0px solid #ccc;
+        z-index: 100;
+      }
+
+      .show {
+        display: block;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .up {
+        position: absolute;
+        right: 40px;
+        top: 40px;
+        z-index: 101;
+        animation: bounce 1s infinite;
+      }
+
+      .down {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+        z-index: 102;
+        animation: bounce_down 1s infinite;
+      }
+
+      .back {
+        opacity: 0.1;
+      }
+
+      .front {
+        opacity: 1;
+      }
+
+      #show_bot1 {
+        position: absolute;
+        right: 40px;
+        bottom: 40px;
+      }
+
+      @keyframes bounce_down {
+        0% {
+          bottom: 40px;
+          animation-timing-function: ease-in;
+        }
+
+        100% {
+          bottom: 36px;
+          animation-timing-function: ease-in;
+        }
+      }
+
+      @keyframes bounce {
+        0% {
+          top: 40px;
+          height: 40px;
+          animation-timing-function: ease-in;
+        }
+
+        50% {
+          top: 45px;
+          height: 40px;
+          animation-timing-function: ease-out;
+        }
+
+        55% {
+          top: 48px;
+          height: 25px;
+          animation-timing-function: ease-in;
+        }
+
+        65% {
+          top: 45px;
+          height: 40px;
+          animation-timing-function: ease-out;
+        }
+
+        95% {
+          top: 40px;
+          animation-timing-function: ease-in;
+        }
+
+        100% {
+          top: 40px;
+          height: 40px;
+          animation-timing-function: ease-in;
+        }
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div id="home_page">
+      <iframe
+        src="http://hansem.com"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        scrolling="yes"
+        style="overflow-y: hidden"
+        onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"
+      >
+      </iframe>
+    </div>
+    <div id="show_bot1" class="down">
+      <img src="images/iu.png" width="80" height="80" />
+    </div>
+    <div id="chat_container" class="hide">
+      <iframe
+        src="http://192.168.4.76:3000/ask"
+        width="100%"
+        height="100%"
+        frameborder="0"
+        scrolling="no"
+        style="overflow-y: hidden"
+        onload="this.before((this.contentDocument.body||this.contentDocument).children[0]);this.remove()"
+      >
+      </iframe>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const icon = document.querySelector("#show_bot1");
+    const bot1_div = document.querySelector("#chat_container");
+    const home = document.querySelector("#home_page");
+    let show = true;
+
+    icon.addEventListener("click", function () {
+      console.log("clicked");
+
+      if (show == true) {
+        bot1_div.setAttribute("class", "show");
+        icon.setAttribute("class", "up");
+        home.setAttribute("class", "back");
+        show = false;
+      } else {
+        bot1_div.setAttribute("class", "hide");
+        icon.setAttribute("class", "down");
+        home.setAttribute("class", "front");
+        show = true;
+      }
+    });
+  </script>
+</html>
