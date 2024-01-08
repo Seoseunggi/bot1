@@ -1,4 +1,4 @@
-//ChatGPT + RAG (ChromaDB) 동작 구현하기
+//ChatGPT + RAG (ChromaDB) 동작 구현
 
 //server 기본 설정
 require("dotenv").config(); //.env 환경변수 로드
