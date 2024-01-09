@@ -164,8 +164,20 @@ app.get("/chromaget/:id", async (req, res) => {
     name: id,
     embeddingFunction: embedder,
   });
+
   const queryData = await collection.get();
+
+  // const queryData = await collection.get({
+  //   ids: [],
+  //   where: {
+  //     source: {
+  //       $in: ["SM-T87X_T97X_UM_Open_TT_Pol_Rev.1.0_221018.pdf", "Pol"],  //리스트 중에 있는것, 다중 리스트 가능
+  //     },
+  //   },
+  // });
+
   res.json(queryData);
+  //res.json("test");  "SM-T87X_T97X_UM_Open_TT_Pol_Rev.1.0_221018.pdf"
 });
 
 //질문
@@ -205,6 +217,28 @@ app.get("/chromad/:id", async (req, res) => {
 
   await collection.delete({ ids: [id] });
   res.send(id + ": deleted.");
+});
+
+//컬렉션 내 id 번호 삭제
+app.post("/chromafiled", async (req, res) => {
+  const client_project = req.body.param1;
+  const client_filename = req.body.param2;
+
+  const collection = await chroma.getOrCreateCollection({
+    name: client_project,
+    embeddingFunction: embedder,
+  });
+
+  await collection.delete({
+    ids: [],
+    where: {
+      source: {
+        $in: [client_filename], //리스트 중에 있는것, 다중 리스트 가능
+      },
+    },
+  });
+
+  res.send(client_filename + ": deleted.");
 });
 
 app.post("/voice", async (req, res) => {
